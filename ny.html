@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Our 2025 🤍</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  font-family:Poppins, sans-serif;
+}
+body{
+  margin:0;
+  background: linear-gradient(135deg, #fff0f5, #ffe4f0);
+  color:#222;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+}
+.container{
+  width:90%;
+  max-width:700px;
+  text-align:center;
+  padding:30px;
+  border-radius:25px;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 15px 40px rgba(255, 100, 150, 0.3);
+  animation:fadeIn 1s ease;
+}
+h1, h2 {
+  color: #ff4d6d;
+  font-family: 'Dancing Script', cursive; /* or 'Great Vibes' */
+  text-shadow: 2px 2px 5px rgba(255, 150, 180, 0.5); /* subtle glow/shadow */
+}
+img{
+  width:100%;
+  max-height:300px;
+  object-fit:contain;
+  margin-top:15px;
+  animation:slideUp 1s ease;
+}
+button{
+  padding:12px 26px;
+  border:none;
+  border-radius:30px;
+  margin:10px;
+  font-size:16px;
+  cursor:pointer;
+  background:#ff4d6d;
+  color:white;
+}
+button.secondary{
+  background:#444;
+}
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+@keyframes slideUp{
+  from{transform:translateY(30px);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+.intro {
+  animation: fadeIn 1.5s ease;
+  background: linear-gradient(to bottom, #fffafc, #ffe4f0);
+  padding: 40px 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.intro h1 {
+  font-size: 32px;
+  color: #ff4d6d;
+  margin-bottom: 20px;
+  animation: slideUp 1s ease;
+}
+
+.intro p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 30px;
+  animation: slideUp 1.2s ease;
+}
+
+.start-btn {
+  padding: 14px 30px;
+  font-size: 18px;
+  border-radius: 40px;
+  border: none;
+  background: #ff4d6d;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.start-btn:hover {
+  transform: scale(1.05);
+  background: #ff6b85;
+}/* ==================== Animations for messages ==================== */
+.message-text {
+  opacity: 0;
+  animation: fadeInText 1s forwards;
+}
+
+@keyframes fadeInText {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.message-img {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: slideUpImg 1s forwards;
+}
+
+@keyframes slideUpImg {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+button.next-btn {
+  animation: pulseBtn 0.8s ease;
+}
+
+@keyframes pulseBtn {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div class="container" id="app"></div>
+
+<audio id="bgm" src="Ehsaas.mp3" loop></audio>
+
+<script>
+
+/* ===============================
+   🔒 YOUR MESSAGES — UNTOUCHED
+   =============================== */
+
+const messages = [
+  { 
+    heading: "A Journey Through Our 2025 Together 🤍",
+    text:`Hi my love,
+This year has been a bumpy rollercoaster ride, and honestly, I don’t know how I would have survived it if I didn’t have you in my life. You were there all these years too, but this year was different — because this was the year we officially became us.
+
+I can’t thank you enough for making my year bearable just by existing. Sometimes, your presence alone was enough to calm me, to ground me, to make things feel a little lighter. I’m so deeply grateful for you, in every possible way.
+
+And even on days when things felt heavy, confusing, or uncertain, knowing that you were there made everything feel a little less scary. You became my safe thought, the one constant I held onto when everything else felt shaky.
+
+This year taught me a lot — about patience, about love, about choosing someone even when things aren’t perfect. And if there’s one thing I’m sure of, it’s that having you by my side made this year meaningful in a way I’ll always cherish.
+
+I love you so much, Pranjal. 🤍`,
+    image:"https://thumbs.dreamstime.com/z/loving-boy-kissing-blushing-girl-romantic-scene-boy-kissing-smiling-girl-radiating-warmth-affection-355297471.jpg?ct=jpeg"
+  },
+
+  {
+    heading:"A Little Rough Patch 🤍",
+    text:`I don’t know why, but things feel a little rough between us right now. And honestly, it hurts. It really does. Still, with this new year, I truly wish that things find their way back to how they once were. I miss you, Pranjal.
+
+We’ve fought a lot, but every time, we managed to find our way back to each other. We made things normal again, stronger again. This time, I’ll admit, I feel a little skeptical and scared — but even then, I hold onto hope. I hope things don’t just go back to how they were, but that we come back even stronger than before.`,
+    image:"https://i.pinimg.com/736x/93/f8/1b/93f81bdf4c3760b2fe2e1f2257d03a68.jpg"
+  },
+ {
+    heading:"First Meeting 🤍",
+    text:`Do you remember when we first met? It was so sudden, so unplanned. You were coming to meet me just like that, and I was honestly so shy. My mind was full of millions of thoughts — What will he think? Am I ready? Will he judge me? Will it be awkward? Am I looking fine? I never told you this, but it felt like I was going for an exam completely unprepared 😅.
+
+But then came 21st June, the day we first met. You were already waiting for me — not me looking around nervously, but you. I came, sat right behind you on that OG yellow scooty, and we just went for a ride because we had nowhere else to go. At one point, I casually rested my head on your shoulder while you were riding — just so I could feel closer to you, feel safer around you, and also so I could listen to you better while you were talking. And I know you liked it — my shy boy 🤍 You were happier than me.
+
+That day was truly one of the best days of 2025. I gave you that bracelet, and because my hands were trembling with nervousness, it broke. I was so sad. But later, I managed to repair it. Then I bought you an ice cream — I’ve always loved doing little things for you. Why? Because you are my happy place, Pranjal. You feel like the safest place of all.
+
+Unfortunately, that day had to end. You dropped me back home, and I never like that feeling — going back home after meeting you. It always feels like why can’t time just stop here? why can’t I have you all to myself? why do I have to go? And before leaving, that mandatory question — “tum phirse aaoge na milne?” 🥺❤️
+
+I slept that night feeling like the happiest girl on earth. I don’t think I had ever been this happy before.`, 
+    image:"https://i.pinimg.com/1200x/c0/12/a8/c012a86fdb5f126ec5d053a23f7c5f12.jpg", yesNo:false
+  },
+  {
+    heading:"First Kiss 🤍",
+    text:`Then came 22nd June, another day I can never forget — truly one of the best days of my life. This day is so special because it was the day we shared our first kiss 😭💖.
+
+First, you came to pick me up, and then we were searching for a place where we could actually kiss. I remember how tough it was to find a spot. Eventually, we found a place that was a bit dark, with people moving here and there. But we just sat together. There was a bit of shyness from your side — not awkwardness, just that cute hesitation — and of course, someone had to take the lead (never a problem 😉).
+
+I remember putting your hand around my small waist, and it made my loverboy so shy — your face lit up with that adorable smile. I remember the moment when you turned your face away out of shyness, then turned back, and I gave you a little kiss on your cheek. That moment made you crave more.
+
+Then we found a more open spot, away from wandering people… and we kissed, Pranjal! 😭💖 I remember you telling me at first that you were shy, worried if you’d be a good kisser, if I would judge you — but honestly, none of that mattered. I felt so lucky and happy to share this special moment with you, and I will always cherish it.
+
+Once that initial shyness faded, I remember you pulling me closer, holding me by my jeans 😭💖. We kissed and kissed, our hearts racing, but somehow it was never enough. I kissed you so many times — on your cheeks, your face, and that big cute nose of yours. You grabbed me by my waist, and I got pure goosebumps.
+
+Also, I gave you that bracelet again — this time not with nervousness, but with calmness. And then it started pouring, so unfortunately we had to go back. I hated it 😭. But when I came home, I still smelled like you and was recalling everything that had happened that day, smiling inside so no one would question it.
+
+Little secret: the top I wore that day? Before meeting you, I went out specifically to buy it. I had a major wardrobe dilemma and didn’t know what to wear, but I wanted to wear something cute for you.`,
+    image:"https://pics.craiyon.com/2024-11-11/D-Zo6TArSo2b2d0jDKZFqA.webp", yesNo:false
+  },
+  {
+    heading:"First Touch 🤍",
+    text:`Then we kept meeting, finding little places where we could spend time together. That’s when we found Nature’s Trail — a place that will always have a special spot in my heart, because so many of our moments live there. Every moment spent with you is special to me, no matter how big or small. I remember everything we’ve done together, and I know I never will forget them.
+
+Finding hidden corners on that trail just so we could kiss is one of those memories I hold close, my love 🤍. And do you remember the first time we held hands? You were so shy then too. I almost had to just take your hand — like, how would you even escape? You were worried about what people might think, but you let that thought go… and you held my hand.
+
+That moment gave me goosebumps. I felt loved. I felt cherished. I felt happy. I felt like I mattered. I felt valued. In that moment, I thought to myself, I will never let go of this hand. And even now, I’m still holding onto it.
+
+You matter, Pranjal Mishra 🤍. And I still crave holding that hand again with the same love whenever I get a chance 😔.`,
+image:"https://i.pinimg.com/736x/8d/42/a2/8d42a2aa7ec579ae52190e4144df4e25.jpg", yesNo:false
+},
+{
+    heading:"First Movie Together 🤍",
+    text:`Then we went on our first movie together. Honestly, it wasn’t even a good movie — there were barely four people in the theatre 😅 — but we still went, just to spend time together, just to hold hands, just to be around each other. You came to pick me up again, and I know I make you do this whole driver thing even though you don’t like it. I’m really sorry for that… but what do I do? I just wanted to be with you.
+
+That movie became another memory right there. We had fun — and you know exactly what I mean 🤍. I kept wondering, where did my shy boy go? The same boy who now found moments in between, hiding from people just to kiss me. Things became intense after that 😳.
+
+Then the movie ended, and it was time for you to drop me back home — a feeling I’ve never liked. No matter how much time we spend together, I always crave more of it with you. And while walking back to the scooty, I slipped… but you caught me. You held me. It was such a small thing, yet it made my heart unbelievably happy. Funny how something so little can make you feel so much.
+
+In that moment, I felt it — I found the right one. You were, and you still are, the right one for me, Pranjal darling 🤍. Maybe I felt it so deeply because I had never really been cared for like that before, and that day made me feel exactly that.
+
+And do you remember our late-night talks after every first experience? Talking about how we felt, what it meant to us… those conversations mattered so much.
+Goodness gracious, I miss you, Pranjal. I wonder if things could ever be the same again.`,
+image:"https://i.pinimg.com/736x/dd/d3/a3/ddd3a36537d0dea4ad14a4a3aa4e9d74.jpg", yesNo:false
+
+},
+{
+    heading:"The Bittersweet Goodbye🤍",
+    text:`Then came the sad day — the day I had to leave for college. We didn’t really know how or when we would meet again… or even if we would meet. We went to the backside of Nature’s Trail, and we hugged. That hug broke me. I cried so much inside, but I controlled it well, didn’t I? You couldn’t see a single tear.
+
+We were just comforting each other, telling ourselves that we would meet again, that we would be together no matter what. We held hands, stayed together for as long as we could, and then went back — sad. I was personally so scared, so sad… thinking we will meet again, right?
+
+Tumhe pata hai, Pranjal — jab bhi tum mujhse puchte rehte ho “kidhar ho?”, “sambhal ke jaana”, “mujhe batate rehna jab pohochogi” — especially when I travel — it genuinely makes me so happy. In those moments, I really feel like I’m being loved and cared for. I had never felt that way before. Now whenever I travel, somewhere in my heart I think, nahi, yeh toh mujhse puchte rahega. And I don’t want that to change — not one bit 🤍.
+
+I really like it when you care for me like that, when you think about me, when you get a little jealous, a little possessive for me. I love that side of you. I love you that way 🤍.
+
+And whenever we fight, it feels scary — like yeh sab kya hai? yeh forever ke liye toh nahi na? Like things might just break. But every time, we somehow make it right and find our way back to each other.
+
+I still want you to find your way back to me… please?
+Paas mein hoke bhi, I miss you. Nothing feels right.`,
+image:"https://i.pinimg.com/originals/cf/01/dc/cf01dc856d33798b809985b6ca30355b.png", yesNo:false
+
+},
+{
+    heading:"Moments That Made Us Stronger 🤍",
+    text:`Before going to college, I still had some time left, and all I wanted was to come and meet you. So we both travelled back just to see each other — simply to spend time together, laugh, and feel close again. Those moments felt lovely.
+
+Then came Raksha Bandhan, and we fought that day. I was upset because we met only for a little while and you were going back the very next day — and I didn’t know about it beforehand. It was a small thing, honestly, but somehow it became huge. Your going got delayed, and you still came to meet me, even if a little reluctantly, just so we could sort things out. I remember bringing you Dairy Milk — you made fun of me for it later 😅 — but at that time, I was genuinely scared. I kept thinking, what if things change? what if you hate me? It was my first time feeling something like this, and I didn’t want to lose you — not at any cost, no matter who was right or wrong.
+
+Then, due to unforeseen situations, your stay got extended, and you still came to meet me. Things slowly went back to normal. We spent time together again. We even went to a movie — but left it halfway because there were too many people and we couldn’t kiss. Funny thing is, you were the one who insisted on watching that movie first… yet we left it just so we could kiss at the back. And we did. That, again, became one of the best moments of 2025 🤍. I was scared someone might see us, but my boy — who used to be shy before me — was fearless, kissing me until he was done. And how can I forget feeding you popcorn with my own hands? God, I miss everything we enjoyed together.
+
+I love it when you tell me how much you love me, how much I mean to you. But then I had to leave — my stay was fixed — and soon after, you went too.
+
+Then came October, when we met again. There was a huge matter going on that honestly broke me from inside. I truly felt like I had lost you then 😭. That fear stayed with me for some time. On the first day we met, we went to eat momos. Things were okay… but something felt missing. You didn’t hold my hand, and that tiny change shook me completely. My mind was full of thoughts — what if he’s still thinking about something?
+
+But there were happy moments too. On the first day itself, we both had something for each other — chocolates, small cute things. I remember giving you the bracelet again because my loverboy had broken it earlier — and this time, you genuinely cherished it and kept it so carefully. And then the keychain — oh God, that was priceless. The way my boy smiled, as if something huge had happened. For you, it was huge. You kept smiling and smiling, and I love it when you smile, Pranjal. I wish you keep smiling always and always 🤍.
+
+The next day, we went to Domino’s. Things were already a bit off. We didn’t eat properly and came back. I could read you — you weren’t your usual self. Even when we ate ice cream, you didn’t enjoy it. You were in a hurry to meet your friends. And then… everything happened. But despite it all, we came back stronger and promised each other that we wouldn’t leave each other, no matter what happens.
+
+And then came your birthday 🤍. I had so much planned. We went to Domino’s again, ate together, fed each other — one of the finest memories. We came back, kissed, laughed, and had fun. And then came the happiest moment — when I showed you the cards I made for you. My boy became so emotional, almost crying. I felt bad for making you feel that way, but seeing you feel so special meant everything to me. If making you shed tears of joy is what it takes, I’ll always do it — because those were tears of happiness 🤍.`,
+image:"https://i.pinimg.com/1200x/6f/21/8b/6f218b6861670f232f03e09075ef4573.jpg", yesNo:false
+
+},
+{
+    heading:"Wrapping Up 2025 with Pranjal🤍",
+    text:`Then college started. I spent a month or two there, and then I came back to meet you again. But this time too, something else came up. Abhi tak hum theek se mil bhi nahi paaye yaar. I’m just hoping ki yeh sab pehle ki tarah theek ho jaaye. I know it’s serious, but tumse milke phir bhi achha lagta hai.
+
+We went out to eat pizza again, had fun, laughed a little — and now we’re just waiting for this year to end well, hoping that in the new year, everything will be okay again, just like before 🤍.
+
+This… this is all about 2025 with Pranjal Mishra — enjoying every bit of it with you. I’ve recalled so many moments here. I might have missed writing something, but that doesn’t mean I don’t remember it. I remember everything.
+
+I’ve always loved you, Pranjal. And I still love you.
+Pata nahi kaise jo cheezein tumhe pasand hoti hain, woh mujhse tumse bhi zyada pasand kaise ho jaati hain — kuch toh hai naa? 🤍
+
+Aur haan — Ananya Panday 😭. Tum kehte ho usse jealous kyun hoti hoon, par kyun na hoon? Mujhse zyada toh wahi dikhti hai tumhari ID mein 😭. Haan haan, do‑teen baar meri bhi post kari hai 😏 — khair.
+
+But Pranjal mere there is no palak without you and wrapping up 2025 with Pranjal Mishra in it 🤍.`,
+image:"https://i.pinimg.com/736x/ad/51/8f/ad518fbdf741d93edf7da64c1f04ba49.jpg", yesNo:false
+
+},
+    
+  // ... You can continue adding all the messages exactly as you wrote them, each with meaningful heading and optionally an illustration.
+
+  {
+    heading:"Looking Forward to 2026 🤍",
+    text:`And before stepping into 2026 🤍
+I wish that 2026 brings my boy lots of success and happiness — with more love, more trust, and unforgettable memories. I hope it makes our journey together even more beautiful.
+
+You know when people say, “If you miss someone, you’re just not busy enough” — I don’t believe that. Because the busier I get, the more I find myself wishing you were around. In the middle of all the chaos, it’s your presence I long for. Every time the world feels mean to me, I just want to run to you. Every single time.
+
+I won’t lie — I’m scared of losing you. Not in a dramatic way, but in the little things… when your replies come late, when your tone feels different, when your presence feels distant. I act normal, I smile — but deep down, I notice everything. Because people don’t leave all at once… they fade, slowly, slowly. And I don’t know if I could survive that. (God forbid that day ever comes, or ever should come.)
+
+So yes, sometimes I hold on tighter — not to suffocate you, but because I’m terrified of letting you go. Isliye hi main reassurances leti rehti hoon… not because I want to trouble you, but because you matter to me more than I know how to explain 🤍.`,
+    image:"https://i.pinimg.com/736x/e7/27/4d/e7274de51492872b94ef119e38b3d874.jpg", yesNo:false
+  },
+{
+    heading:"My Forever Promise to You 🤍",
+    text:`One last thing 🤍
+I had no idea I was going to get this attached. I think about you all the time — from the moment I wake up to the moment I fall asleep. I know, for a fact, that we are meant for each other. Seeing you smile can change my entire day.
+
+Just know this — I will never let go of you. And my feelings for you will never disappear. That’s my promise to you 🤍. Because really… what will I lose when I have you?
+And what will I have if I lose you?.`,
+ image:"https://i.pinimg.com/1200x/2a/f1/9b/2af19bacaad33493e184f287aeedfc2f.jpg", yesNo:false
+},
+{
+    heading:"I Just Want Us 🤍",
+    text:`All I want 🤍
+I just want things between us to never change — never, never, never. Instead, I wish they go back to normal… please.`,
+},
+{
+    heading:"Forever My Safe Place🤍",
+    text:`Before this year ends 🤍
+One last time, Pranjal — thank you for being there for me, always. I wish that whenever I fall into a pit, you’re there to hold my hand. When things aren’t right and I turn to you, you simply say, “I’m here” — and somehow that solves more than half of the problem.
+
+
+The devil couldn’t reach me, but God did… and He sent me the sweetest boy ever. I can’t thank God enough`,
+image:"https://i.pinimg.com/736x/c1/25/b9/c125b987925e89e509c88149ce30b44c.jpg", yesNo:false
+
+},
+{
+  heading: "Welcome 2026 🤍",
+  text:`As we step into 2026, I just want to pause and say how grateful I am for every moment we've shared in 2025.  
+This new year feels extra special because I get to enter it with you by my side.  
+
+May 2026 bring us even more laughter, more adventures, and countless memories together.I wish that this year , you achieve everything you aspire to and become the best version of yourself. I hope this year brings you success, happiness, and growth in every way, while our love and bond continue to deepen. May every day remind you of how special you are, and may we create even more unforgettable memories together.  
+I can’t wait to see what we create, share, and cherish together this year.  
+Happy New Year, my love! 💖`,
+  image: "https://i.pinimg.com/736x/70/f2/d1/70f2d1c53da9675425b962d3d38eae22.jpg",
+  yesNo: false
+},
+  
+
+  /* ALL YOUR OTHER MESSAGES CONTINUE EXACTLY AS YOU WROTE THEM */
+
+  {
+    heading:"One Last Thing 🤍",
+    text:`I love you, Pranjal Mishra ❤️`,
+    image:"https://i.pinimg.com/736x/23/02/fa/2302fa5dcd57d90826203c459ecd3f01.jpg"
+  }
+];
+
+/* ===============================
+   APP LOGIC
+   =============================== */
+
+
+let step = -1;
+const app = document.getElementById("app");
+const bgm = document.getElementById("bgm");
+
+function intro(){
+  step = -1; // reset step when replay
+  app.innerHTML = `
+    <div class="intro">
+      <h1>✨ Welcome to Our 2025 Journey ✨</h1>
+      <p>Do you want to see our 2025 recap, my love? 🤍</p>
+      <button class="start-btn" onclick="yes()">Yes</button>
+      <button class="start-btn secondary" onclick="no()">No</button>
+    </div>
+  `;
+}
+
+function yes(){
+  bgm.play().catch(()=>{}); // play background music
+  step = 0;
+  show();
+}
+
+function no(){
+  app.innerHTML = `
+    <div class="intro">
+      <h2>Nice try 😌</h2>
+      <p>You don’t really get to skip this 😉</p>
+      <button class="start-btn" onclick="yes()">Continue</button>
+    </div>
+  `;
+}
+
+function show(){
+  // Check if we reached the end
+  if(step >= messages.length){
+    app.innerHTML = `
+      <div class="intro">
+        <h1>🤍</h1>
+        <p>This is where 2025 rests!</p>
+        <button class="start-btn" onclick="intro()">Replay</button>
+      </div>
+    `;
+    return;
+  }
+
+  const m = messages[step];
+
+  // If message has yesNo buttons
+  if(m.yesNo){
+    app.innerHTML = `
+      <h2>${m.heading}</h2>
+      <p class="message-text">${m.text}</p>
+      ${m.image ? `<img src="${m.image}" class="message-img">` : ""}
+      <br>
+      <button class="start-btn" onclick="yes()">Yes</button>
+      <button class="start-btn secondary" onclick="no()">No</button>
+    `;
+  } else {
+    app.innerHTML = `
+      <h2>${m.heading}</h2>
+      <p class="message-text">${m.text}</p>
+      ${m.image ? `<img src="${m.image}" class="message-img">` : ""}
+      <br>
+      <button class="next-btn" onclick="next()">Next</button>
+    `;
+  }
+}
+
+function next(){
+  step++;
+  show();
+}
+
+// Start the app
+intro();
+</script>
